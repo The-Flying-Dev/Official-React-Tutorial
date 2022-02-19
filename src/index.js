@@ -47,7 +47,7 @@ function Square(props) {
       return ( 
       <Square 
         value={this.props.squares[i]} // passed first prop to child component 
-        onClick={() => this.onClick(i)} //function passed to Square to update Board
+        onClick={() => this.props.onClick(i)} //function passed to Square to update Board
       />
      );     
     }
@@ -90,7 +90,7 @@ function Square(props) {
               }],
               stepNumber: 0,
               xIsNext: true,
-          }
+          };
       }
 
       handleClick(i) {
@@ -108,7 +108,7 @@ function Square(props) {
                 squares: squares,
             }]),
             stepNumber: history.length,
-            xIsNext:!this.state.xIsNext,  
+            xIsNext:!this.state.xIsNext 
           });
       }
 
@@ -191,31 +191,5 @@ function Square(props) {
 
 
 
-  const history = [
-    // Before first move
-    {
-      squares: [
-        null, null, null,
-        null, null, null,
-        null, null, null,
-      ]
-    },
-    // After first move
-    {
-      squares: [
-        null, null, null,
-        null, 'X', null,
-        null, null, null,
-      ]
-    },
-    // After second move
-    {
-      squares: [
-        null, null, null,
-        null, 'X', null,
-        null, null, 'O',
-      ]
-    },
-    // ...
-  ]
+  
   
