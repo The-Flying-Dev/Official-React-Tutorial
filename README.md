@@ -1,3 +1,11 @@
+# The official React tutorial from [reactjs.org](https://reactjs.org/tutorial/tutorial.html#storing-a-history-of-moves)
+
+Went through this documentation to get a better understanding of the library.
+<hr />
+
+<br />
+<br />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
