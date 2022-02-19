@@ -5,26 +5,31 @@ import './index.css';
 
 
 
-class Square extends React.Component {  //class component
-    constructor(props) {
-        super(props); //using super because this is a subclass
-        this.state = {
-            value: null,
-        };
-    }
-
+/*class Square extends React.Component {  //class component
+    
     render() {
       return (
         <button 
             className="square" 
-            onClick={() => this.setState({value: 'X'})}
+            onClick={() => this.props.onClick()}
         >
-            {this.state.value}
+            {this.props.value}
         </button>
       );
     }
   }
+*/
 
+
+//function component is better when component is only rendering and does not need to keep track of state
+
+function Square(props) {
+    return (
+        <button className='square' onClick={props.onClick}>
+            {props.value}
+        </button>
+    );
+}
 
 
   
@@ -35,8 +40,19 @@ class Square extends React.Component {  //class component
               squares: Array(9).fill(null),
           };
       }
+      
+      handleClick(i) {
+          const squares = this.state.squares.slice();
+          squares[i] = 'X';
+          this.setState({squares: squares});
+      }
     renderSquare(i) {
-      return <Square value={i} />;      /* passed first prop to child component */
+      return ( 
+      <Square 
+        value={this.state.squares[i]} // passed first prop to child component 
+        onClick={() => this.handleClick(i)} //function passed to Square to update Board
+      />
+     );     
     }
   
     render() {
